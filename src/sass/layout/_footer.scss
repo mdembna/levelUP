@@ -1,0 +1,30 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 1em;
+
+    @include tablet {
+        margin: 0 5em 2em 5em;
+    }
+}
+
+.footer__item {
+    display: flex;
+    font-family: $main_font_stack;
+    color: $footer_font_color;
+    
+    a {
+        color: $primary_font_color;
+    }
+}
+
+.social-media {
+    display: flex;
+
+}
+
+.social-media__item {
+    padding: 0px 10px;
+    .social-mdedia__item--dribble {       
+    }
+}

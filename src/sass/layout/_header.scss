@@ -1,0 +1,22 @@
+.header {
+    position: absolute;
+    left: 3em;
+    top: 3em;
+
+    @include tablet {
+        left: 6em;
+    }
+}
+
+.header__logo {
+    display: inline-block;
+    font-size: 1.1rem;
+    padding: 1rem 2.3rem;
+    border: 2px solid $primary_font_color;
+    color: $primary_font_color;  
+    font-family: "Gabriela";
+    font-size: 1.5rem;
+}
+
+
+
