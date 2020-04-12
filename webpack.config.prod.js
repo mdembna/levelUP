@@ -1,18 +1,18 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === "production";
 
-const distDir = path.resolve(__dirname, 'dist');
+const distDir = path.resolve(__dirname, "dist");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
-    filename: 'main.js',
+    filename: "main.js",
     path: distDir
   },
-  mode: 'development',
-  devtool: 'eval',
+  mode: "development",
+  devtool: "eval",
   devServer: {
     contentBase: distDir
   },
@@ -22,35 +22,36 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env']
+            presets: ["@babel/preset-env"]
           }
         }
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ["style-loader", "css-loader"]
       },
       {
         test: /\.s(a|c)ss$/,
-        use: [isProduction 
-          ? MiniCssExtractPlugin.loader 
-          : {loader: 'style-loader', options: {sourceMap: true} }, 
-          {loader: 'css-loader', options: {sourceMap: isProduction} }, 
-          {loader: 'postcss-loader', options: {sourceMap: isProduction} }, 
-          {loader: 'sass-loader', options: {sourceMap: isProduction} }, 
+        use: [
+          isProduction
+            ? MiniCssExtractPlugin.loader
+            : { loader: "style-loader" },
+          { loader: "css-loader" },
+          { loader: "postcss-loader" },
+          { loader: "sass-loader" }
         ]
       },
       {
         test: /\.(jpg|png)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[name].[ext]',
-              outputPath: 'assets/',
-              publicPath: 'assets/'
+              name: "[name].[ext]",
+              outputPath: "assets/",
+              publicPath: "assets/"
             }
           }
         ]
@@ -59,7 +60,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: "./src/index.html"
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
